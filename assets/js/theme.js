@@ -68,25 +68,21 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {  
-
-    const logoutLink = document.getElementById("aLogout");
-    if (logoutLink) {
-
-      logoutLink.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        document.cookie = "id_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            
-      });
+  function getCookie(name) {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+        let [key, value] = cookie.split('=');
+        if (key === name) {
+            return decodeURIComponent(value);
+        }
     }
-  });
+    return null;
+  }
+
+  const username = getCookie('username');
+
+  if (username) {
+      document.querySelector('.d-none.d-lg-inline.me-2.text-gray-600.small').textContent = username;
+  }
 
 })();
-
-
-
-
-    
-  
-  

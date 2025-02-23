@@ -5,16 +5,19 @@ const inputUser = d.getElementById("inputUser");
 const inputPassword = d.getElementById("inputPassword");
 
 async function loginUser(username, password) {
-    const credentials = btoa(`${username}:${password}`);
 
     try {
         const response = await fetch('http://127.0.0.1:8000/api/users/login', {
             method: 'POST',
             headers: {
-                'Authorization': `Basic ${credentials}`,
-                'Content-Type': 'application/json'
+                'accept': 'application/json',
+                'Content-Type': 'application/json',
             },
-            credentials: 'include'
+            credentials: 'include',
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
         });
 
         if (!response.ok) {
@@ -23,7 +26,7 @@ async function loginUser(username, password) {
         }
 
         const userData = await response.json();
-        console.log('Login exitoso:', userData);
+        console.log(userData);
         return userData;
 
     } catch (error) {
@@ -48,7 +51,7 @@ loginForm.addEventListener("submit", async function (event) {
 
     loginUser(username, password)
     .then(user => {
-        console.log('Usuario logueado:', user);
+        window.location.href = "../../index.html";
     })
     .catch(error => {
         new bs5.Toast({

@@ -68,21 +68,22 @@
     });
   }
 
-  function getCookie(name) {
-    const cookies = document.cookie.split('; ');
-    for (let cookie of cookies) {
-        let [key, value] = cookie.split('=');
-        if (key === name) {
-            return decodeURIComponent(value);
-        }
+
+  document.querySelector('.d-none.d-lg-inline.me-2.text-gray-600.small').textContent = `¡Hola ${sessionStorage.getItem('username')}!`;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const logoutButton = document.querySelector(".dropdown-logout");
+    
+    if (logoutButton) {
+        logoutButton.addEventListener("click", function(e) {
+            e.preventDefault(); 
+            sessionStorage.removeItem("access_token");
+            sessionStorage.removeItem("id_user");
+            sessionStorage.removeItem("username");
+            sessionStorage.removeItem("email");
+            window.location.href = "../../login.html"; 
+        });
     }
-    return null;
-  }
-
-  const username = getCookie('username');
-
-  if (username) {
-      document.querySelector('.d-none.d-lg-inline.me-2.text-gray-600.small').textContent = username;
-  }
+  });
 
 })();

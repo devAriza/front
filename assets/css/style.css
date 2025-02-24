@@ -1,11 +1,18 @@
-.headerCardBoard {
-  display: flex;
-}
-
 textarea {
   resize: none;
   height: 30px;
   width: auto;
+  font-weight: bold;
+  color: black;
+}
+
+input {
+  margin-bottom: 18px;
+  border-style: none;
+}
+
+.headerCardBoard {
+  display: flex;
 }
 
 .textDescripcion {
@@ -21,11 +28,6 @@ textarea {
   display: flex;
   justify-content: start;
   align-content: center;
-}
-
-input {
-  margin-bottom: 18px;
-  border-style: none;
 }
 
 .divDescripcion {
@@ -53,6 +55,11 @@ input {
   padding: 0px;
   margin: 14px;
   margin-top: 0px;
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius);
+  border-radius: var(--bs-card-border-radius);
+  color: var(--bs-body-color);
+  word-wrap: break-word;
 }
 
 .divUpdateTask {
@@ -61,26 +68,20 @@ input {
   align-content: center;
 }
 
-.divTasksPendientes {
-  width: 463.312px;
-}
-
-.divTasksPendientes {
-  width: 463.312px;
-}
-
 .btnCollapsePendientes {
-  max-width: 350px;
-  width: 75%;
+  width: 100%;
   margin-top: 7px;
   margin-bottom: 7px;
 }
 
 .btnCollapseFinalizado {
-  max-width: 350px;
-  width: 75%;
+  width: 100%;
   margin-top: 7px;
   margin-bottom: 7px;
+}
+
+.btnCollapsePendientes:hover {
+  background-color: var(--bs-dark);
 }
 
 .modal Label {
@@ -92,4 +93,3 @@ input {
 .rowCountDashboard {
   justify-content: center;
 }
-

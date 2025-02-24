@@ -87,14 +87,14 @@ async function get_tasks() {
                 }).show();
                 return;
             }
-            throw new Error(`Error HTTP: ${response.status}`);
+            throw new Error(`Error de conexión: ${response.status}`);
         }
 
         arrayTasks = await response.json();
 
     } catch (error) {
         new bs5.Toast({
-            body: `Error fetching tasks: ${error}`,
+            body: `Error de conexión: ${error}`,
             className: 'border-0 bg-warning text-white',
         }).show();
         return;
@@ -205,7 +205,6 @@ async function create_task(title, description) {
         modalCreate.hide();
 
     } catch (error) {
-        console.error('Error:', error);
         new bs5.Toast({
             body: `Error al crear la tarea: ${error.message}`,
             className: 'border-0 bg-danger text-white',

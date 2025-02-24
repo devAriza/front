@@ -24,7 +24,7 @@ loginForm.addEventListener("submit", async function (event) {
     })
     .catch(error => {
         new bs5.Toast({
-            body: `Error: ${error.message}`,
+            body: `Error de conexión.`,
             className: 'border-0 bg-danger text-white',
         }).show();
     });

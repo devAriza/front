@@ -88,7 +88,7 @@ async function get_tasks() {
 
     } catch (error) {
         new bs5.Toast({
-            body: `Error fetching tasks: ${error}`,
+            body: `Error de conexión: ${error}`,
             className: 'border-0 bg-warning text-white',
         }).show();
         return;
